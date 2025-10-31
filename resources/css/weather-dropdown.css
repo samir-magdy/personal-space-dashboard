@@ -1,0 +1,41 @@
+#city-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+#city-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+    padding: 20px;
+}
+
+#city-dropdown::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark #city-dropdown::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+.dropdown-option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-bottom: 1px solid rgb(209, 213, 219, 0.2);
+}
+
+.dark .dropdown-option {
+    border-bottom-color: rgb(209, 213, 219, 0.2);
+}
+
+.dropdown-option:hover,
+.dropdown-option.highlighted {
+    background: #949597;
+}
+
+.dark .dropdown-option:hover,
+.dark .dropdown-option.highlighted {
+    background: rgba(109, 135, 177, 0.1);
+}
+
+.dropdown-option:last-child {
+    border-bottom: none;
+}

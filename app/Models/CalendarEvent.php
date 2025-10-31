@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class CalendarEvent extends Model
+{
+    protected $fillable = [
+        'user_id',
+        'title',
+        'start',
+        'all_day',
+        'background_color',
+        'border_color',
+    ];
+
+    protected $casts = [
+        'start' => 'date',
+        'all_day' => 'boolean',
+    ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+}
