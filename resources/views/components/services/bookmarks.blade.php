@@ -3,20 +3,20 @@
 
         <!-- Add Bookmark Form -->
         <div class="rounded-xl p-4 shadow-md border border-gray-300 dark:border-white/20">
-            <div class="flex items-center gap-3 flex-wrap">
+            <div class="flex-col flex lg:flex-row items-center gap-3 flex-wrap">
                 <input
                     type="text"
                     id="bookmarkUrl"
                     placeholder="URL (e.g., google.com)"
-                    class="flex-1 bg-white dark:bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 text-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg border border-gray-300 dark:border-white/20">
+                    class="w-full flex-1 bg-white dark:bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 text-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg border border-gray-300 dark:border-white/20">
                 <input
                     type="text"
                     id="bookmarkName"
                     placeholder="Name"
-                    class="flex-1 bg-white dark:bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 text-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg border border-gray-300 dark:border-white/20">
+                    class="w-full flex-1 bg-white dark:bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 text-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg border border-gray-300 dark:border-white/20">
                 <button
                     onclick="addBookmark()"
-                    class="flex-1 lg:flex-none bg-blue-600 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold py-3 px-6 md:px-16 text-lg rounded-lg transition duration-200 shadow-md focus:outline-none focus:ring-4 focus:ring-blue-600/50">
+                    class="w-full bg-blue-600 hover:bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold py-3 px-6 text-lg rounded-lg transition duration-200 shadow-md focus:outline-none focus:ring-4 focus:ring-blue-600/50">
                     Add
                 </button>
             </div>
@@ -24,7 +24,7 @@
 
         <!-- Bookmarks Grid -->
         <div class="flex-1 overflow-y-auto pb-40">
-            <div id="bookmarksList" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div id="bookmarksList" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 <!-- Bookmarks will be rendered here -->
             </div>
             <div id="emptyState" class="hidden flex items-center justify-center h-full text-center text-gray-800 dark:text-white/70">

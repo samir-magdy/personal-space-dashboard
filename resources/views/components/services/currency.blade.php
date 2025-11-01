@@ -1,21 +1,19 @@
-<div class="w-full h-full text-gray-900 dark:text-white p-4 pt-0 sm:p-8">
+<div class="w-full sm:w-fit h-full text-gray-900 dark:text-white p-4 pt-8 sm:p-8">
 
     <div class="z-20 flex flex-col items-center justify-start lg:justify-center min-h-full mx-auto">
 
         <div class="temp text-6xl sm:text-8xl font-bold">
-            <span id="exchange-rate" class="text-gray-900 dark:text-white animate-fadeInScaleUp delay-100">
-                {{ $currency && $currency['rate'] ? number_format($currency['rate'], 2) : '--' }}
+            <span id="exchange-rate" class="text-center text-gray-900 dark:text-white animate-fadeInScaleUp delay-100">
+                {{ $currency && $currency['rate'] ? number_format($currency['rate'], 2) . " " . $currency['target_currency'] : '--' }}
             </span>
         </div>
-        <div class="weather-icon-main my-8 sm:my-12 text-gray-900 dark:text-white">
+        <div class="weather-icon-main my-6 sm:my-12 text-gray-900 dark:text-white">
             <i class="fas fa-coins text-[100px] sm:text-[200px]"></i>
         </div>
 
         <div id="currency-pair" class="location text-2xl sm:text-4xl opacity-90 mb-4 sm:mb-8 tracking-wide animate-fadeInUp delay-200 text-center">
-            {{ $currency['base_currency'] ?? 'USD' }} to {{ $currency['target_currency'] ?? 'EGP' }}
-            @if($currency)
-            <div class="text-2xl opacity-75 capitalize mt-2">Exchange Rate</div>
-            @endif
+            1 {{ $currency['base_currency'] ?? 'USD' }} to {{ $currency['target_currency'] ?? 'EGP' }}
+
         </div>
 
         <!-- Error Message -->
@@ -24,18 +22,18 @@
         </div>
 
         <!-- Currency Search Form -->
-        <form id="currency-form" class="w-full max-w-4xl">
-            <div class="flex flex-col gap-3">
-                <div class="flex flex-col sm:flex-row gap-3 items-center justify-center w-full">
-                    <input id="currency_amount" name="currency_amount" type="text" placeholder="Amount to convert.." class="w-full sm:w-72 mx-auto px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-transparent">
+        <form id="currency-form" class="w-full sm:max-w-4xl">
+            <div class="flex flex-col gap-3 w-full">
+                <input id="currency_amount" name="currency_amount" type="number" placeholder="Amount to convert.." class="w-full md:w-64 sm:mx-auto px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-transparent">
+                <div class="flex flex-col sm:flex-row gap-2 items-center justify-center">
 
                     <select
                         id="base-currency"
                         name="base_currency"
-                        class="w-full sm:w-72 truncate px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer bg-white dark:bg-transparent">
+                        class="w-full md:w-72 truncate px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer bg-white dark:bg-transparent">
                         @if($availableCurrencies && count($availableCurrencies) > 0)
                         @foreach($availableCurrencies as $code => $name)
-                        <option value="{{ $code }}" class=" bg-white dark:bg-gray-800 text-gray-900 dark:text-white" {{ request('base_currency', 'USD') == $code ? 'selected' : '' }}>
+                        <option value="{{ $code }}" class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white" {{ request('base_currency', 'USD') == $code ? 'selected' : '' }}>
                             {{ Str::limit($name, 20) }}
                         </option>
                         @endforeach
@@ -49,7 +47,7 @@
                     <select
                         id="target-currency"
                         name="target_currency"
-                        class="w-full sm:w-72 truncate px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer bg-white dark:bg-transparent">
+                        class="w-full md:w-72 truncate px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer bg-white dark:bg-transparent">
                         @if($availableCurrencies && count($availableCurrencies) > 0)
                         @foreach($availableCurrencies as $code => $name)
                         <option value="{{ $code }}" class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white" {{ request('target_currency', 'EGP') == $code ? 'selected' : '' }}>
@@ -64,7 +62,7 @@
                 <button
                     id="currency-convert-btn"
                     type="submit"
-                    class="w-full mx-auto px-12 sm:px-24 py-3 sm:py-4 text-lg sm:text-xl bg-blue-600 hover:bg-blue-800 disabled:bg-gray-800 disabled:cursor-not-allowed text-white rounded-xl transition-colors duration-200 font-medium mt-1 ">
+                    class="w-full sm:mx-auto px-12 sm:px-24 py-3 sm:py-4 text-lg sm:text-xl bg-blue-600 hover:bg-blue-800 disabled:bg-gray-800 disabled:cursor-not-allowed text-white rounded-xl transition-colors duration-200 font-medium mt-1 ">
                     Convert
                 </button>
             </div>

@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Get amount and validate - default to 1 if empty or invalid
             let amount = parseFloat(amountInput.value);
-            if (isNaN(amount) || amount <= 0 || amountInput.value.trim() === "") {
+            if (
+                isNaN(amount) ||
+                amount <= 0 ||
+                amountInput.value.trim() === ""
+            ) {
                 amount = 1;
             }
 
@@ -73,16 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
         // Update exchange rate display with converted amount
         const rateEl = document.getElementById("exchange-rate");
         if (rateEl && currency.rate) {
-            rateEl.textContent = convertedAmount.toLocaleString('en-US', {
+            rateEl.textContent = convertedAmount.toLocaleString("en-US", {
                 minimumFractionDigits: 2,
-                maximumFractionDigits: 2
+                maximumFractionDigits: 2,
             });
         }
 
         // Update currency pair display
         const currencyPairEl = document.getElementById("currency-pair");
         if (currencyPairEl) {
-            currencyPairEl.innerHTML = `${
+            currencyPairEl.innerHTML = `${amount} ${
                 currency.base_currency || "USD"
             } to ${currency.target_currency || "EGP"}`;
         }

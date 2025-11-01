@@ -1,6 +1,8 @@
 // Widget switching and navigation functionality
 document.addEventListener("DOMContentLoaded", function () {
-    const widgetLinks = document.querySelectorAll(".widget-link");
+    const widgetLinks = document.querySelectorAll(
+        ".widget-link, .widget-link-mobile"
+    );
     const widgetContainers = document.querySelectorAll(".widget-container");
 
     // Function to switch to a widget
@@ -18,16 +20,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update active state on links
         widgetLinks.forEach((l) => {
+            // Remove active states from sidebar links
             l.classList.remove("bg-white", "dark:bg-gray-700");
+            // Remove active states from mobile bottom nav
+            l.classList.remove(
+                "bg-gray-200",
+                "dark:bg-gray-600",
+                "text-gray-900",
+                "dark:text-white"
+            );
+            // Reset to default colors for mobile
+            if (l.classList.contains("widget-link-mobile")) {
+                l.classList.add("text-gray-700", "dark:text-gray-300");
+            }
         });
 
-        // Add active class to the corresponding link
-        const activeLink = document.querySelector(
+        // Add active class to the corresponding links (both sidebar and mobile)
+        const activeLinks = document.querySelectorAll(
             `[data-widget="${widgetName}"]`
         );
-        if (activeLink) {
-            activeLink.classList.add("bg-white", "dark:bg-gray-700");
-        }
+        activeLinks.forEach((link) => {
+            if (link.classList.contains("widget-link-mobile")) {
+                // Mobile bottom nav active state
+                link.classList.add("bg-gray-200", "dark:bg-gray-600");
+                link.classList.remove("text-gray-700", "dark:text-gray-300");
+                link.classList.add("text-gray-900", "dark:text-white");
+            } else {
+                // Sidebar active state
+                link.classList.add("bg-white", "dark:bg-gray-700");
+            }
+        });
 
         // Save to localStorage
         localStorage.setItem("activeWidget", widgetName);

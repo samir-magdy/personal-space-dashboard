@@ -1,26 +1,26 @@
-<div class="w-full h-full text-gray-900 dark:text-white p-2 md:p-4 flex flex-col">
+<div class="w-full h-full text-gray-900 dark:text-white p-4 sm:p-8 flex flex-col">
 
     <div class="z-20 flex flex-col flex-1 gap-3 sm:gap-6 justify-start min-h-0">
 
 
 
-        <div class="rounded-xl p-2 sm:p-4 border border-gray-300 dark:border-white/20 shadow-md">
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+        <div class="rounded-xl p-4 sm:p-4 border border-gray-300 dark:border-white/20 shadow-md">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <input
                     type="text"
                     id="todoInput"
                     placeholder="Create a new task..."
-                    class="flex-1 bg-white dark:bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 text-lg p-2 sm:p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg border border-gray-300 dark:border-white/20"
+                    class="flex-1 bg-white dark:bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white/60 text-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg border border-gray-300 dark:border-white/20"
                     onkeydown="if(event.key === 'Enter') addTodo()">
                 <button
                     onclick="addTodo()"
-                    class="bg-blue-600 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-800 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 lg:px-24 text-lg rounded-lg transition duration-200 shadow-md focus:outline-none focus:ring-4 focus:ring-blue-600/50 w-full sm:w-auto">
+                    class="bg-blue-600 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-800 text-white font-semibold py-3 sm:py-3 px-4 sm:px-6 lg:px-24 text-lg rounded-lg transition duration-200 shadow-md focus:outline-none focus:ring-4 focus:ring-blue-600/50 w-full sm:w-auto">
                     Add
                 </button>
             </div>
         </div>
 
-        <div class="flex-1 rounded-xl overflow-hidden border border-gray-300 dark:border-white/20 flex flex-col min-h-0 max-h-[55vh] sm:max-h-full">
+        <div class="flex-1 rounded-xl overflow-hidden border border-gray-300 dark:border-white/20 flex flex-col min-h-0 max-h-[46vh] sm:max-h-full">
 
             <ul id="todoList" class="flex-1 min-h-0 p-2 sm:p-4 space-y-2 sm:space-y-3 overflow-y-auto">
             </ul>

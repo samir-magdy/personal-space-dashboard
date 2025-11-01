@@ -1,5 +1,5 @@
-<div class="w-full h-full text-gray-900 dark:text-white overflow-hidden p-4 sm:p-8">
-    <div class="flex flex-col h-full gap-4 sm:gap-8">
+<div class="w-full h-full text-gray-900 dark:text-white overflow-y-auto p-4 pb-40 sm:p-8">
+    <div class="flex flex-col gap-4 sm:gap-8">
 
         <div class="flex justify-end">
             <button id="news-language-toggle" data-current-lang="{{ request('news_lang', 'en') }}" class="px-4 sm:px-8 py-2 sm:py-4 text-base sm:text-xl rounded-xl font-medium transition-colors duration-200 bg-gray-600 hover:bg-gray-700 text-white">
@@ -8,7 +8,7 @@
         </div>
 
         @if($news && count($news) > 0)
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 overflow-y-auto" id="news-container" data-language="{{ request('news_lang', 'en') }}">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8" id="news-container" data-language="{{ request('news_lang', 'en') }}">
             @foreach($news as $article)
             <a href="{{ $article['url'] }}" target="_blank" class="animate-fadeInScaleUp delay-100 border border-gray-300 dark:border-white/10 rounded-2xl p-3 sm:p-4 hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200 flex flex-col group">
                 @if($article['image'])
@@ -35,7 +35,7 @@
         </div>
 
         <!-- View More Button -->
-        <div class="text-center">
+        <div class="text-center pb-4">
             <button id="view-more-btn" class="w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-4 text-base sm:text-xl rounded-xl font-medium transition-colors duration-200 bg-gray-600 hover:bg-gray-700 text-white">
                 View More
             </button>

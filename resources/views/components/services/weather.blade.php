@@ -1,4 +1,4 @@
-<div class="z-20 flex flex-col justify-start items-center lg:justify-center min-h-full p-4 pt-0 sm:p-8">
+<div class="z-20 flex flex-col justify-start items-center lg:justify-center min-h-full p-4 pt-8 pt-0 sm:p-8">
 
     <div class="temp text-6xl sm:text-8xl font-bold">
         <span class="mx-auto text-gray-900 dark:text-white animate-fadeInScaleUp delay-100" id="temperature">
@@ -18,7 +18,7 @@
         @endif
     </div>
     <!-- City Search Form -->
-    <form id="weather-search-form" class="w-64 max-w-2xl mt-12">
+    <form id="weather-search-form" class="w-64 max-w-2xl mt-4">
         <div class="flex flex-col gap-3">
             <div class="flex flex-col gap-3 sm:gap-4">
                 <!-- Custom Autocomplete Container -->

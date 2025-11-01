@@ -1,14 +1,7 @@
 <x-app-layout>
-    <!-- Mobile Menu Toggle Button -->
-    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-700 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-        <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-        </svg>
-    </button>
 
     <!-- Sidebar -->
-    <aside id="default-sidebar" class="fixed top-16 sm:top-17 left-0 z-50 sm:z-40 w-52 h-[calc(100vh-4rem)] sm:h-[calc(100vh-7vh)] transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <aside id="default-sidebar" class="dark:text-white fixed top-16 sm:top-17 left-0 z-50 sm:z-40 w-52 h-[calc(100vh-8rem)] sm:h-[calc(100vh-7vh)] transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-200 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
@@ -58,6 +51,28 @@
         </div>
     </aside>
 
+    <!-- Bottom Mobile Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-gray-300 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600 sm:hidden shadow-lg">
+        <div class="grid grid-cols-4 h-16">
+            <a href="#" data-widget="home" class="widget-link-mobile flex flex-col items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 active:scale-95">
+                <i class="fas fa-house text-xl mb-0.5"></i>
+                <span class="text-xs font-medium">Home</span>
+            </a>
+            <a href="#" data-widget="news" class="widget-link-mobile flex flex-col items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 active:scale-95">
+                <i class="fas fa-newspaper text-xl mb-0.5"></i>
+                <span class="text-xs font-medium">News</span>
+            </a>
+            <a href="#" data-widget="todo" class="widget-link-mobile flex flex-col items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 active:scale-95">
+                <i class="fas fa-list-check text-xl mb-0.5"></i>
+                <span class="text-xs font-medium">Tasks</span>
+            </a>
+            <button data-drawer-toggle="default-sidebar" type="button" class="flex flex-col items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-200 active:scale-95">
+                <i class="fas fa-bars text-xl mb-0.5"></i>
+                <span class="text-xs font-medium">More</span>
+            </button>
+        </div>
+    </nav>
+
     <!-- Main Content Area -->
     <div class="sm:ml-52 overflow-hidden">
         <div class="overflow-hidden">
@@ -65,7 +80,7 @@
             <!-- Home View -->
             <div id="home-widget" class="widget-container hidden">
 
-                <div class="w-full h-[calc(100vh-4rem)] flex items-start justify-start lg:justify-center relative overflow-hidden ">
+                <div class="w-full h-[calc(100vh-8rem)] sm:h-[calc(100vh-4rem)] flex items-start justify-start lg:justify-center relative overflow-hidden ">
                     <div class="text-center px-4 sm:px-8 w-full">
                         <!-- Clock (centered on mobile, aligned with weather temp on desktop) -->
                         <div class="flex justify-center mt-20 md:mt-40 me-4">
@@ -97,25 +112,25 @@
             </div>
 
             <div id="news-widget" class="widget-container hidden">
-                <div class="w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+                <div class="w-full h-[calc(100vh-8rem)] sm:h-[calc(100vh-4rem)] flex items-center justify-center">
                     <x-services.news :news="$news" />
                 </div>
             </div>
 
             <div id="weather-widget" class="widget-container hidden">
-                <div class="w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+                <div class="w-full h-[calc(100vh-8rem)] sm:h-[calc(100vh-4rem)] flex items-center justify-center">
                     <x-services.weather :weather="$weather" />
                 </div>
             </div>
 
             <div id="currency-widget" class="widget-container hidden">
-                <div class="w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+                <div class="w-full h-[calc(100vh-8rem)] sm:h-[calc(100vh-4rem)] flex items-center justify-center">
                     <x-services.currency :currency="$currency" :availableCurrencies="$availableCurrencies" />
                 </div>
             </div>
 
             <div id="todo-widget" class="widget-container hidden">
-                <div class="w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+                <div class="w-full h-[calc(100vh-8rem)] sm:h-[calc(100vh-4rem)] flex items-center justify-center">
                     <x-services.todo />
                 </div>
             </div>
@@ -127,7 +142,7 @@
             </div>
 
             <div id="bookmarks-widget" class="widget-container hidden">
-                <div class="w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+                <div class="w-full h-[calc(100vh-8rem)] sm:h-[calc(100vh-4rem)] flex items-center justify-center">
                     <x-services.bookmarks />
                 </div>
             </div>

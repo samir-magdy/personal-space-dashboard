@@ -1,8 +1,8 @@
-<div class="calendar-widget-container relative w-full h-full overflow-hidden flex flex-col">
-    <div class="calendar-widget relative text-gray-900 dark:text-white p-2 sm:p-6 w-full flex-1">
+<div class="calendar-widget-container relative w-full h-full overflow-hidden p-4 pt-8 flex flex-col">
+    <div class="calendar-widget relative text-gray-900 dark:text-white w-full flex-1">
         <div id='calendar' class="h-full"></div>
     </div>
-    <div class="text-center text-gray-800 dark:text-gray-400 text-sm sm:text-base py-6 px-2 md:pt-0">
+    <div class="text-center text-gray-800 dark:text-gray-400 text-sm sm:text-xl sm:py-8 px-2 ">
         Tip: Click on a day to add an event, click on an event to remove it.
     </div>
 </div>
